@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { DataService } from './data.service';
 
 interface IDomNode {
 	 tag?: string | undefined;
@@ -14,32 +15,23 @@ interface IDomNode {
 	styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 	ODomNode: IDomNode;
 
-	constructor(private sanitizer: DomSanitizer) { }
+	DOMModel: IDomNode[];
 
-	json: IDomNode = {
-		tag: "div",
-		content: [
-			{
-				tag: "span",
-				attributes: { style: "color: red" },
-				content: [{ text: "Enter value:" }]
-			},
-			{
-				tag: "input",
-				attributes: {
-					type: "text",
-					value: "test",
-					style: "color: green"
-				}
-			}
-		]
+	constructor(
+		private sanitizer: DomSanitizer,
+		private dataService: DataService
+	) {
+		this.DOMModel = [];
 	}
 
 	ngOnInit() {
-		this.ODomNode = this.sanitizer.bypassSecurityTrustHtml(this.toHTML(this.json));
+		this.DOMModel = this.dataService.getIDOMModel()
+			.subscribe(res => {
+				this.ODomNode = this.sanitizer.bypassSecurityTrustHtml(this.toHTML(res));
+			});
 	}
 
 	toHTML(iModel: IDomNode) {
@@ -53,7 +45,7 @@ export class AppComponent {
 			if (iModel.content) {
 				let content = '';
 
-				for (let i = 0; i < iModel.content.length; ++i)
+				for (let i = 0; i < iModel.content.length; i++)
 					content += this.toHTML(iModel.content[i]);
 
 				element.innerHTML = content;
