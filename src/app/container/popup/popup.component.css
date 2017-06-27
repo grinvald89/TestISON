@@ -56,3 +56,7 @@
 .popup .description p {
 	overflow: hidden;
 }
+
+.popup .description p i {
+	color: #0041ff;
+}
