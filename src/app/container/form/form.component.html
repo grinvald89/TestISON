@@ -1,0 +1,7 @@
+<section>
+	<form (submit)="onSubmit($event)">
+		<input type="text" placeholder="Введите URL" [(ngModel)]="url" name='url' (ngModelChange)="onChange($event)">
+		<button type="submit" (mouseover)="onButtonFocus(true)">загрузить</button>
+		<span *ngIf="showWarningUrl">*URL не может быть пустым!</span>
+	</form>
+</section>

@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { DataService } from './data.service';
 
-interface IDomNode {
-	 tag?: string | undefined;
-	 attributes?: {[key: string]: string};
-	 content?: IDomNode[];
-	 text?: string;
- }
+import { ContainerComponent } from './container/container.component';
 
 @Component({
 	selector: 'app-root',
@@ -15,48 +8,4 @@ interface IDomNode {
 	styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
-	ODomNode: IDomNode;
-
-	DOMModel: IDomNode[];
-
-	constructor(
-		private sanitizer: DomSanitizer,
-		private dataService: DataService
-	) {
-		this.DOMModel = [];
-	}
-
-	ngOnInit() {
-		this.DOMModel = this.dataService.getIDOMModel()
-			.subscribe(res => {
-				this.ODomNode = this.sanitizer.bypassSecurityTrustHtml(this.toHTML(res));
-			});
-	}
-
-	toHTML(iModel: IDomNode) {
-		if (iModel.tag) {
-			let element = document.createElement(iModel.tag);
-
-			if (iModel.attributes)
-				for (let attribute in iModel.attributes)
-					element.setAttribute(attribute, iModel.attributes[attribute]);
-
-			if (iModel.content) {
-				let content = '';
-
-				for (let i = 0; i < iModel.content.length; i++)
-					content += this.toHTML(iModel.content[i]);
-
-				element.innerHTML = content;
-			}
-
-			if (iModel.text)
-				element.innerHTML = iModel.text;
-
-			return element.outerHTML;
-		}
-		else
-			return iModel.text ? iModel.text : '';
-	}
-}
+export class AppComponent { }

@@ -7,8 +7,8 @@ describe('test-isone App', () => {
     page = new TestISONEPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
-  });
+  // it('should display welcome message', () => {
+  //   page.navigateTo();
+  //   expect(page.getParagraphText()).toEqual('Welcome to app!!');
+  // });
 });
