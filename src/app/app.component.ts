@@ -1,3 +1,9 @@
+/*
+	This component renders
+	the form for entering the URL
+	and the container containing the result.
+*/
+
 import { Component } from '@angular/core';
 
 import { FormComponent } from './form/form.component';

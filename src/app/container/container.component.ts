@@ -1,3 +1,10 @@
+/*
+	This component receives URL from the parent component,
+	requests the DOM from the server, and sends it to the
+	component that generates the result.
+	Also it displays a popup with an error a fail loading.
+*/
+
 import { Component, Input } from '@angular/core';
 
 import { ResultComponent } from './result/result.component';
@@ -23,12 +30,11 @@ class ErrorRequest {
 export class ContainerComponent {
 	@Input() Url: string;
 
-
 	iDomNode: IDomNode;
 	result: string;
 	url: string;
 
-	errorRequest = new ErrorRequest(false);
+	errorRequest = new ErrorRequest();
 
 	constructor (
 		private dataService: DataService,
@@ -43,7 +49,7 @@ export class ContainerComponent {
 			this.result = '';
 			this.errorRequest.status = false;
 
-			this.dataService.getIDOMModel(url)
+			this.dataService.getDOMModel(url)
 				.subscribe(
 					res => this.result = this.modelOperationsService.toHTML(res),
 					err => {

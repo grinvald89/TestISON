@@ -1,21 +1,17 @@
-<section>
-	<div class="overlay" (click)="onClosePopup()" *ngIf="showPopup"></div>
+<div class="overlay" (click)="onClosePopup()" *ngIf="showPopup"></div>
 
-	<div class="popup" [ngClass]="{'show': showPopup}">
-		<header>
-			<span>Request error!</span>		
-			<i (click)="onClosePopup()">X</i>
-		</header>
+<div class="popup" [ngClass]="{'show': showPopup}">
+	<header>
+		<span>Request error!</span>		
+		<i (click)="onClosePopup()">X</i>
+	</header>
 
-		<div class="description">
-			<p>
-				По адресу: "{{url}}" не удалось получить DOM-модель!
-				<br>
-				Проверьте URL!
-				<i>(Пример: https://hh.ru/vacancy/21535659)</i>
-			</p>
-		</div>
+	<div class="description">
+		<p>
+			По адресу: "{{ url }}" не удалось получить DOM-модель!
+			<br>
+			Проверьте URL!
+			<i>(Пример: https://hh.ru/vacancy/21535659)</i>
+		</p>
 	</div>
-</section>
-
-
+</div>

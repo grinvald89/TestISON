@@ -4,7 +4,7 @@ import { IDomNode } from '../shared/i-dom-node.interface';
 
 @Injectable()
 export class ModelOperationsService {
-	toHTML(iModel: IDomNode) {
+	toHTML (iModel: IDomNode) {
 		if (iModel.tag) {
 			let element = document.createElement(iModel.tag);
 

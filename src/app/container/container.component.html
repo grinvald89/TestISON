@@ -1,5 +1,7 @@
-<main>
-	<app-result [result]="result"></app-result>
+<app-result [result]="result"></app-result>
 
-	<app-popup (closePopup)="onClosePopup()" [showPopup]="errorRequest.status" [url]="url"></app-popup>
-</main>
+<app-popup
+	(closePopup)="onClosePopup()"
+	[showPopup]="errorRequest.status"
+	[url]="url">
+</app-popup>

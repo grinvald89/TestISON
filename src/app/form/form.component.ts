@@ -1,3 +1,8 @@
+/*
+	This component receives the URL
+	from the user and sends it to the parent component.
+*/
+
 import { Component, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 

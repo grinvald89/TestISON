@@ -41,12 +41,17 @@
 	height: 20px;
 	text-align: center;
 	line-height: 20px;
-	font-size: 12px;
+	font-family: Arial;
+	font-size: 15px;
 	font-style: normal;
 	color: #fff;
 	background: #ccc;
 	border-radius: 50%;
 	cursor: pointer;
+}
+
+.popup header i:hover {
+	background: #b9b9b9;
 }
 
 .popup .description {
