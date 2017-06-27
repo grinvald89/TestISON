@@ -3,8 +3,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-result',
-	templateUrl: './result.component.html',
-	styleUrls: ['./result.component.css']
+	templateUrl: './result.component.html'
 })
 
 export class ResultComponent {

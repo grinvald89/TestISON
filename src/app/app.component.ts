@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
+import { FormComponent } from './form/form.component';
 import { ContainerComponent } from './container/container.component';
 
 @Component({
@@ -8,4 +9,10 @@ import { ContainerComponent } from './container/container.component';
 	styleUrls: ['./app.component.css']
 })
 
-export class AppComponent { }
+export class AppComponent {
+	url: string = '';
+
+	setUrl (url: string) {
+		this.url = url;
+	}
+}

@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 
 export class FormComponent {
-	@Output() getModel = new EventEmitter();
+	@Output() Url = new EventEmitter();
 
 	url: string = '';
 	showWarningUrl: boolean = false;
@@ -17,7 +17,7 @@ export class FormComponent {
 		event.preventDefault();
 
 		if (this.url.length)
-			this.getModel.emit(this.url);
+			this.Url.emit(this.url);
 	}
 
 	onButtonFocus(focus: boolean) {

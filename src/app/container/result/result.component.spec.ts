@@ -23,7 +23,7 @@ describe('ResultComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it('should be created component', () => {
     expect(component).toBeTruthy();
   });
 });

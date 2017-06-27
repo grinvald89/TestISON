@@ -1,4 +1,7 @@
 <main>
 	<h1>ISONE test app</h1>
-	<app-container></app-container>	
+
+	<app-form (Url)="setUrl($event)"></app-form>
+
+	<app-container [Url]="url"></app-container>	
 </main>

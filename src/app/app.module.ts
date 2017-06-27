@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
-import { FormComponent } from './container/form/form.component';
+import { FormComponent } from './form/form.component';
 import { ResultComponent } from './container/result/result.component';
 import { PopupComponent } from './container/popup/popup.component';
 

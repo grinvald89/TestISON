@@ -52,3 +52,7 @@
 .popup .description {
 	padding: 15px;
 }
+
+.popup .description p {
+	overflow: hidden;
+}
