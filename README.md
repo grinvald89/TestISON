@@ -26,3 +26,9 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# ВНИМАНИЕ!
+
+При загрузке файла из внешнего источника (кросдоменном запросе), убедитесь, что сервер, у которого вы запрашиваете данные, поддерживает кросдоменные запросы (уставлен Header `Access-Control-Allow-Origin : *`), иначе запрос не выполнится - это политика безопасности браузеров! 
+
+Для удобства тестирования можно использовать сервер: `https://github.com/grinvald89/NodeJsServer`, подставляя свои json (в папке url сервера).
